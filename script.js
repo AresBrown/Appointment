@@ -2,11 +2,11 @@ document.getElementById("randevuForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const form = e.target;
+  const mesajEl = document.getElementById("mesaj");
   const token = grecaptcha.getResponse();
 
   // reCAPTCHA kontrolü
   if (!token) {
-    const mesajEl = document.getElementById("mesaj");
     mesajEl.textContent = "Lütfen reCAPTCHA doğrulamasını tamamlayın.";
     mesajEl.className = "error";
     return;
@@ -36,8 +36,6 @@ document.getElementById("randevuForm").addEventListener("submit", function(e) {
     return res.json();
   })
   .then(result => {
-    const mesajEl = document.getElementById("mesaj");
-
     if (result.success) {
       mesajEl.textContent = "✅ Randevunuz başarıyla alındı! E-postanızı kontrol edin.";
       mesajEl.className = "success";
@@ -49,7 +47,6 @@ document.getElementById("randevuForm").addEventListener("submit", function(e) {
     }
   })
   .catch(err => {
-    const mesajEl = document.getElementById("mesaj");
     mesajEl.textContent = "🚫 Sunucu hatası: " + err.message;
     mesajEl.className = "error";
   });
