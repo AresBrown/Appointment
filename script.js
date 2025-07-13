@@ -26,15 +26,14 @@ document.getElementById("randevuForm").addEventListener("submit", function(e) {
   .then(res => res.json())
   .then(result => {
     if (result.success) {
-      document.getElementById("mesaj").textContent = "Randevunuz alındı! E-posta kutunuzu kontrol edin.";
+      document.getElementById("mesaj").textContent = "✅ Randevunuz alındı! E-postanızı kontrol edin.";
       form.reset();
       grecaptcha.reset();
     } else {
-      document.getElementById("mesaj").textContent = "Hata: " + result.message;
+      document.getElementById("mesaj").textContent = "⚠️ Hata: " + result.message;
     }
   })
   .catch(err => {
-    document.getElementById("mesaj").textContent = "Sunucu hatası: " + err.message;
+    document.getElementById("mesaj").textContent = "❌ Sunucu hatası: " + err.message;
   });
 });
-
