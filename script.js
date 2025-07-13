@@ -16,22 +16,25 @@ document.getElementById("randevuForm").addEventListener("submit", function(e) {
     token: token
   };
 
-  fetch("https://https://script.google.com/macros/s/AKfycbyeNsc-n5pORvHfBjrg7yHq8zdlQ-i41XGdqOAP9tDgioCLeuz2X0_npHYsSX-dVvg9zw/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(formData)
-  }).then(res => res.json())
-    .then(result => {
-      if (result.success) {
-        document.getElementById("mesaj").textContent = "Randevunuz alındı! E-posta kutunuzu kontrol edin.";
-        form.reset();
-        grecaptcha.reset();
-      } else {
-        document.getElementById("mesaj").textContent = "Hata: " + result.message;
-      }
-    }).catch(err => {
-      document.getElementById("mesaj").textContent = "Sunucu hatası: " + err.message;
-    });
+  fetch("https://script.google.com/macros/s/AKfycbyeNsc-n5pORvHfBjrg7yHq8zdlQ-i41XGdqOAP9tDgioCLeuz2X0_npHYsSX-dVvg9zw/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(result => {
+    if (result.success) {
+      document.getElementById("mesaj").textContent = "Randevunuz alındı! E-posta kutunuzu kontrol edin.";
+      form.reset();
+      grecaptcha.reset();
+    } else {
+      document.getElementById("mesaj").textContent = "Hata: " + result.message;
+    }
+  })
+  .catch(err => {
+    document.getElementById("mesaj").textContent = "Sunucu hatası: " + err.message;
+  });
 });
+
