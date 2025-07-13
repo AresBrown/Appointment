@@ -16,7 +16,7 @@ document.getElementById("randevuForm").addEventListener("submit", function(e) {
     token: token
   };
 
-  fetch("YOUR_APPS_SCRIPT_URL", {
+  fetch("https://script.google.com/macros/s/AKfycbyeNsc-n5pORvHfBjrg7yHq8zdlQ-i41XGdqOAP9tDgioCLeuz2X0_npHYsSX-dVvg9zw/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
