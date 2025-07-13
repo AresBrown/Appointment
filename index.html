@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Randevu Al</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <form id="randevuForm">
+    <h2>Randevu Al</h2>
+    <input type="text" name="name" placeholder="Ad Soyad" required />
+    <input type="email" name="email" placeholder="E-posta" required />
+    <input type="date" name="date" required />
+    <select name="time" required>
+      <option value="">Saat Seçin</option>
+      <option value="10:00">10:00</option>
+      <option value="11:00">11:00</option>
+      <option value="13:00">13:00</option>
+      <option value="15:00">15:00</option>
+    </select>
+
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
+    <button type="submit">Randevu Al</button>
+    <div id="mesaj"></div>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
