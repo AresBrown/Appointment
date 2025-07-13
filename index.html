@@ -10,9 +10,11 @@
 <body>
   <form id="randevuForm">
     <h2>Randevu Al</h2>
+
     <input type="text" name="name" placeholder="Ad Soyad" required />
     <input type="email" name="email" placeholder="E-posta" required />
     <input type="date" name="date" required />
+
     <select name="time" required>
       <option value="">Saat Seçin</option>
       <option value="10:00">10:00</option>
@@ -21,11 +23,15 @@
       <option value="15:00">15:00</option>
     </select>
 
+    <!-- reCAPTCHA -->
     <div class="g-recaptcha" data-sitekey="6LeJ6IArAAAAAFykhx_iGxyLPfspgFDo_2iT4-m6"></div>
 
     <button type="submit">Randevu Al</button>
-    <div id="mesaj"></div>
+
+    <div id="mesaj" style="margin-top:10px;"></div>
   </form>
+
   <script src="script.js"></script>
 </body>
 </html>
+
